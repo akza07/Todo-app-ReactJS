@@ -24,6 +24,15 @@ function App() {
     }))
   }
 
+  function toggleCompletion(id) {
+    setTodo(todo.map(item=> {
+      if(item.id===id)
+        return {...item,completed:!item.completed}
+      else
+        return item
+    }))
+  }
+
   useEffect(() => {
     console.log(todo)
   },[todo])
@@ -32,7 +41,7 @@ function App() {
     <div className="App">
       <h1>React Todo App</h1>
       <Form handleSubmit={handleSubmit}/>
-      <TodoList todo={todo} removeTodo={removeTodo} />
+      <TodoList todo={todo} removeTodo={removeTodo} toggleCompletion={toggleCompletion} />
       <button onClick={resetTodo}>reset</button>
     </div>
   );
