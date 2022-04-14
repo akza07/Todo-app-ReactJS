@@ -3,17 +3,17 @@ function TodoList({ todo, removeTodo, toggleCompletion }) {
     removeTodo(id);
   }
   function handleToggle(id) {
-    toggleCompletion(id)
+    toggleCompletion(id);
   }
   const todoItems = (
     <div>
       {todo.map((item) => (
-        <li
-          key={item.id}
+        <li key={item.id}>
+          <span
           className={item.completed ? "task-complete" : "task-pending"}
-          onClick={(e)=>handleToggle(item.id)}
-        >
-          {item.todoNote}{" "}
+          onClick={(e) => handleToggle(item.id)}
+          >
+            {item.todoNote}</span>
           <button onClick={(e) => handleRemove(item.id)}>Delete</button>
         </li>
       ))}
