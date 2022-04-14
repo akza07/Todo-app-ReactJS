@@ -1,11 +1,12 @@
-function TodoList({ todo, onStatusChange }) {
-  // console.log(todo)
-
+function TodoList({ todo, removeTodo }) {
+  function handleRemove(id) {
+    removeTodo(id)      
+  }
   const todoItems = (
     <div>
       {todo.map((item) => (
         <li key={item.id}>
-          {item.todoNote}
+          {item.todoNote} <button onClick={(e)=>handleRemove(item.id)}>Delete</button>
         </li>
       ))}
     </div>

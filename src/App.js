@@ -15,6 +15,15 @@ function App() {
     setTodo([])
   }
 
+  function removeTodo(id) {
+    setTodo(todo.filter(item=> {
+      if(item.id!==id)
+        return item
+      else
+        return null
+    }))
+  }
+
   useEffect(() => {
     console.log(todo)
   },[todo])
@@ -23,7 +32,7 @@ function App() {
     <div className="App">
       <h1>React Todo App</h1>
       <Form handleSubmit={handleSubmit}/>
-      <TodoList todo={todo} />
+      <TodoList todo={todo} removeTodo={removeTodo} />
       <button onClick={resetTodo}>reset</button>
     </div>
   );
