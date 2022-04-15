@@ -8,13 +8,14 @@ function TodoList({ todo, removeTodo, toggleCompletion }) {
   const todoItems = (
     <div>
       {todo.map((item) => (
-        <li key={item.id}>
+        <li key={item.id} className="list-item">
           <span
-          className={item.completed ? "task-complete" : "task-pending"}
-          onClick={(e) => handleToggle(item.id)}
+            className={item.completed ? "task-complete" : "task-pending"}
+            onClick={(e) => handleToggle(item.id)}
           >
-            {item.todoNote}</span>
-          <button onClick={(e) => handleRemove(item.id)}>Delete</button>
+            {item.todoNote}
+          </span>
+          <button className="remove-button" onClick={(e) => handleRemove(item.id)}>Delete</button>
         </li>
       ))}
     </div>
@@ -22,8 +23,8 @@ function TodoList({ todo, removeTodo, toggleCompletion }) {
 
   return (
     <>
-      <p>You currently have {todo.length} items in the list</p>
-      <ul>{todoItems}</ul>
+      <p className="item-counter">You currently have {todo.length} items in the list</p>
+      <ul className="list-container">{todoItems}</ul>
     </>
   );
 }
